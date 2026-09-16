@@ -31,7 +31,8 @@ export default function LogoImage({
   const dimension = isNamedSize ? SIZE_MAP[size] : null;
   const customPixels = typeof size === "number" ? size : 40;
 
-  const src = variant === "flourish" ? "/caseac-logo-flourish.jpg" : "/caseac-logo.jpg";
+  const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+  const src = variant === "flourish" ? `${base}/caseac-logo-flourish.jpg` : `${base}/caseac-logo.jpg`;
 
   return (
     <div
