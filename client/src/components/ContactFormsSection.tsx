@@ -1,14 +1,26 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Check, MoveRight, Send } from "lucide-react";
+import { ArrowUpRight, Check, MoveRight, Sparkles } from "lucide-react";
 
-export default function ContactFormsSection() {
+interface ContactFormsSectionProps {
+  preselectedSector?: string;
+}
+
+export default function ContactFormsSection({ preselectedSector }: ContactFormsSectionProps) {
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSent, setNewsletterSent] = useState(false);
 
   const [volunteerEmail, setVolunteerEmail] = useState("");
-  const [volunteerRole, setVolunteerRole] = useState("mentor");
+  const [volunteerRole, setVolunteerRole] = useState("celebrity-plus");
+  const [selectedSectorName, setSelectedSectorName] = useState(preselectedSector || "");
   const [volunteerSent, setVolunteerSent] = useState(false);
+
+  useEffect(() => {
+    if (preselectedSector) {
+      setSelectedSectorName(preselectedSector);
+      setVolunteerRole("celebrity-plus");
+    }
+  }, [preselectedSector]);
 
   const handleNewsletterSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,20 +47,21 @@ export default function ContactFormsSection() {
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="eyebrow mb-3.5 text-[#d26a3a]">
-            Connect With The Center
+          <div className="eyebrow mb-3.5 flex items-center gap-2 text-[#d26a3a]">
+            <Sparkles size={15} />
+            <span>Connect &amp; Co-Create</span>
           </div>
           <h2
             id="contact-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight tracking-[-0.015em] text-[#1d3029]"
           >
-            Stay in the circle. <br />
-            <em className="italic text-[#d26a3a]">Build</em> with us.
+            Turn your influence <br />
+            into <em className="italic text-[#d26a3a]">lasting impact.</em>
           </h2>
           <p className="mt-6 max-w-[420px] text-sm sm:text-base leading-relaxed text-[#5a6b61]">
-            Receive our monthly field journal featuring newly funded enterprises,
-            open grant cycles, volunteer calls, and policy milestones. No spam,
-            just substance.
+            Whether you represent a celebrated public voice, an institutional grantmaker,
+            a licensed social worker, or an emerging community founder, CASEAC co-creates
+            solutions with you.
           </p>
         </motion.div>
 
@@ -63,10 +76,10 @@ export default function ContactFormsSection() {
             className="rounded-2xl border border-[#c8c0b5] bg-[#fbf8f2] p-7 shadow-sm"
           >
             <h3 className="font-condensed text-base font-bold uppercase tracking-[0.1em] text-[#1d3029]">
-              The Action Dispatch
+              The Field Dispatch
             </h3>
             <p className="mt-2 text-xs leading-relaxed text-[#5a6b61]">
-              Monthly updates on community ventures, grant deadlines, and impact.
+              Monthly updates on community ventures, grant calls, and verified social evidence.
             </p>
 
             <AnimatePresence mode="wait">
@@ -84,7 +97,7 @@ export default function ContactFormsSection() {
                     You&apos;re subscribed!
                   </p>
                   <p className="mt-1 text-xs text-[#5a6b61]">
-                    Thank you for supporting community-led enterprise.
+                    Thank you for joining the CASEAC ecosystem.
                   </p>
                 </motion.div>
               ) : (
@@ -101,7 +114,7 @@ export default function ContactFormsSection() {
                     required
                     value={newsletterEmail}
                     onChange={(e) => setNewsletterEmail(e.target.value)}
-                    placeholder="name@organization.com"
+                    placeholder="name@institution.org"
                     className="mt-2 w-full border-b border-[#8f9f94] bg-transparent py-2.5 text-sm text-[#1d3029] outline-none placeholder:text-[#8c978e] focus:border-[#d26a3a] transition-colors"
                   />
                   <motion.button
@@ -126,11 +139,17 @@ export default function ContactFormsSection() {
             className="rounded-2xl border border-[#c8c0b5] bg-[#fbf8f2] p-7 shadow-sm"
           >
             <h3 className="font-condensed text-base font-bold uppercase tracking-[0.1em] text-[#1d3029]">
-              Volunteer or Partner
+              Partner with CASEAC
             </h3>
             <p className="mt-2 text-xs leading-relaxed text-[#5a6b61]">
-              Bring your expertise, influence, or company network to the mission.
+              Mobilize influence, professional social work, or catalytic capital.
             </p>
+
+            {selectedSectorName && (
+              <div className="mt-3 rounded-lg bg-[#e7b44a]/20 border border-[#e7b44a]/50 p-2 text-xs text-[#1d3029]">
+                Selected Sector: <strong>{selectedSectorName}</strong>
+              </div>
+            )}
 
             <AnimatePresence mode="wait">
               {volunteerSent ? (
@@ -144,10 +163,10 @@ export default function ContactFormsSection() {
                     <Check size={18} />
                   </div>
                   <p className="mt-3 text-sm font-bold text-[#1f4136]">
-                    Inquiry Received!
+                    Co-Creation Inquiry Logged!
                   </p>
                   <p className="mt-1 text-xs text-[#5a6b61]">
-                    Our partnerships team will reach out within 48 hours.
+                    Our ecosystem partnership desk will reach out within 48 hours.
                   </p>
                 </motion.div>
               ) : (
@@ -156,7 +175,7 @@ export default function ContactFormsSection() {
                     htmlFor="volunteer-email-input"
                     className="block text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b61]"
                   >
-                    Work / Personal Email
+                    Email Address
                   </label>
                   <input
                     id="volunteer-email-input"
@@ -172,7 +191,7 @@ export default function ContactFormsSection() {
                     htmlFor="volunteer-role-select"
                     className="mt-4 block text-xs font-semibold uppercase tracking-[0.08em] text-[#5a6b61]"
                   >
-                    Engagement Interest
+                    Engagement Capacity
                   </label>
                   <select
                     id="volunteer-role-select"
@@ -180,10 +199,12 @@ export default function ContactFormsSection() {
                     onChange={(e) => setVolunteerRole(e.target.value)}
                     className="mt-2 w-full border-b border-[#8f9f94] bg-transparent py-2.5 text-xs sm:text-sm text-[#1d3029] outline-none focus:border-[#d26a3a] transition-colors"
                   >
-                    <option value="mentor">Founder Mentorship &amp; Advisory</option>
-                    <option value="cultural">Celebrity / Creative Advocacy</option>
-                    <option value="event">Community Action &amp; Events</option>
-                    <option value="grantor">Institutional / Grant Partner</option>
+                    <option value="celebrity-plus">Celebrity + Sector Collaboration</option>
+                    <option value="cultural">Celebrated Public Voice / Group</option>
+                    <option value="social-work">Licensed Social Worker / Forensics Specialist</option>
+                    <option value="enterprise">Grassroots Social Entrepreneur</option>
+                    <option value="grantor">Institutional / Impact Investment Partner</option>
+                    <option value="research">Academic / Research Evidence Partner</option>
                   </select>
 
                   <motion.button
@@ -192,7 +213,7 @@ export default function ContactFormsSection() {
                     type="submit"
                     className="button-press mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full border border-[#1f4136] py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#1f4136] hover:bg-[#1f4136] hover:text-[#fff8ee]"
                   >
-                    Submit Application <ArrowUpRight size={15} />
+                    Submit Co-Creation Request <ArrowUpRight size={15} />
                   </motion.button>
                 </form>
               )}

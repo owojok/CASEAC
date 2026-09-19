@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowUpRight, ShieldCheck, TrendingUp } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, TrendingUp, Sparkles } from "lucide-react";
 
 interface AboutSectionProps {
   onScrollTo: (id: string) => void;
@@ -24,28 +24,38 @@ export default function AboutSection({
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.6 }}
         >
-          <div className="eyebrow mb-3.5 text-[#d26a3a]">
-            Origin &amp; Structure
+          <div className="eyebrow mb-3.5 flex items-center gap-2 text-[#d26a3a]">
+            <Sparkles size={15} />
+            <span>Origin &amp; Discipline</span>
           </div>
           <h2
             id="about-heading"
             className="font-display text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight tracking-[-0.015em] text-[#1d3029]"
           >
-            A bold coalition <br />
-            with an <em className="italic text-[#d26a3a]">open door.</em>
+            Clinical empathy. <br />
+            <em className="italic text-[#d26a3a]">Enterprise</em> architecture.
           </h2>
           <p className="mt-6 text-sm sm:text-base leading-relaxed text-[#5a6b61]">
             Conceived by <strong>Benjamin Lwahas</strong> — a licensed clinical social
             work consultant, human-centered design specialist, and impact investor —
-            <strong>Celebrity Aid Social Entrepreneurship Action Center</strong> unites
-            clinical frontline empathy with rigorous enterprise architecture.
+            <strong>CASEAC</strong> unites clinical frontline empathy with rigorous enterprise architecture.
           </p>
           <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#5a6b61]">
             Our role is to supply the catalytic fuel — seed micro-capital, prominent
             cultural advocacy, human-centered operational coaching, and institutional
             channels — to transform community grit into generational economic dignity.
           </p>
-
+          <div className="mt-6 flex flex-wrap gap-2">
+            <span className="rounded-md bg-[#e7e1d7] px-2.5 py-1 text-xs font-semibold text-[#1f4136]">
+              Clinical Social Work
+            </span>
+            <span className="rounded-md bg-[#e7e1d7] px-2.5 py-1 text-xs font-semibold text-[#1f4136]">
+              Social Forensics
+            </span>
+            <span className="rounded-md bg-[#e7e1d7] px-2.5 py-1 text-xs font-semibold text-[#1f4136]">
+              Venture Philanthropy
+            </span>
+          </div>
         </motion.div>
 
         {/* Right Column */}
@@ -56,7 +66,7 @@ export default function AboutSection({
           transition={{ delay: 0.15, duration: 0.6 }}
         >
           <div className="grid gap-6 sm:grid-cols-2">
-            <div className="rounded-xl border-t-2 border-[#1f4136] bg-[#fbf8f2]/60 p-5 shadow-sm">
+            <div className="rounded-xl border-t-2 border-[#1f4136] bg-[#fbf8f2]/80 p-5 shadow-sm">
               <div className="flex items-center gap-2 text-[#1f4136]">
                 <TrendingUp size={16} />
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.12em]">
@@ -79,7 +89,7 @@ export default function AboutSection({
               </button>
             </div>
 
-            <div className="rounded-xl border-t-2 border-[#1f4136] bg-[#fbf8f2]/60 p-5 shadow-sm">
+            <div className="rounded-xl border-t-2 border-[#1f4136] bg-[#fbf8f2]/80 p-5 shadow-sm">
               <div className="flex items-center gap-2 text-[#1f4136]">
                 <ShieldCheck size={16} />
                 <p className="font-condensed text-xs font-bold uppercase tracking-[0.12em]">
@@ -88,13 +98,13 @@ export default function AboutSection({
               </div>
               <p className="mt-3 text-xs sm:text-sm leading-relaxed text-[#5a6b61]">
                 An interdisciplinary circle of cultural leaders, economists,
-                social workers, neighborhood organizers, and active fellows.
+                licensed social workers, neighborhood organizers, and active fellows.
               </p>
               <button
-                onClick={() => onScrollTo("get-involved")}
+                onClick={() => onScrollTo("contact-forms")}
                 className="group mt-4 inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.1em] text-[#1f4136] hover:text-[#d26a3a]"
               >
-                Meet The Council
+                Join Fellowship
                 <ArrowUpRight
                   size={14}
                   className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -103,7 +113,7 @@ export default function AboutSection({
             </div>
           </div>
 
-          {/* Inspirational Quote Callout */}
+          {/* Founder Quote Callout */}
           <div className="mt-10 rounded-xl border-l-4 border-[#e7b44a] bg-[#fbf8f2] p-6 shadow-sm">
             <p className="font-display text-xl sm:text-2xl italic font-normal leading-relaxed text-[#1f4136]">
               “When we pair clinical empathy and human-centered design with real

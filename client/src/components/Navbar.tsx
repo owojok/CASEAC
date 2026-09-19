@@ -47,7 +47,7 @@ export function BrandLogo({
             isScrolled ? "text-[0.6rem] mt-0.5" : "text-[0.68rem] mt-1"
           } ${light ? "text-[#b5c7b8]" : "text-[#5a6b61]"}`}
         >
-          Social Entrepreneurship Action Center
+          Social Impact Ecosystem
         </span>
       </div>
     </a>
@@ -67,10 +67,11 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
   }, []);
 
   const navItems: [string, string][] = [
+    ["Identity", "institutional"],
+    ["12-Stage Cycle", "ecosystem"],
+    ["Celebrity +", "celebrity-plus"],
     ["The Work", "work"],
-    ["Impact Story", "story"],
-    ["Take Action", "get-involved"],
-    ["About CASEAC", "about"],
+    ["About", "about"],
   ];
 
   const handleNavClick = (id: string) => {
@@ -93,7 +94,7 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
         </div>
 
         <nav
-          className="hidden items-center gap-8 lg:flex"
+          className="hidden items-center gap-7 lg:flex"
           aria-label="Primary navigation"
         >
           {navItems.map(([label, id]) => (
@@ -109,10 +110,10 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
 
         <div className="hidden items-center gap-4 sm:flex">
           <button
-            onClick={() => handleNavClick("get-involved")}
+            onClick={() => handleNavClick("contact-forms")}
             className="text-xs font-semibold uppercase tracking-[0.14em] text-[#4c6156] transition-colors hover:text-[#d26a3a]"
           >
-            Get Involved
+            Partner
           </button>
           <motion.button
             whileHover={{ scale: 1.03 }}
@@ -120,7 +121,7 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
             onClick={onOpenGiveModal}
             className="button-press inline-flex items-center gap-1.5 rounded-full bg-[#d26a3a] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.14em] text-[#fff8ee] shadow-sm hover:bg-[#b9552a]"
           >
-            Give Now <ArrowUpRight size={14} />
+            Seed Fund <ArrowUpRight size={14} />
           </motion.button>
         </div>
 
@@ -158,7 +159,7 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
                 ))}
                 <div className="mt-4 flex flex-col gap-2.5">
                   <button
-                    onClick={() => handleNavClick("get-involved")}
+                    onClick={() => handleNavClick("contact-forms")}
                     className="flex items-center justify-center rounded-full border border-[#1f4136] py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#1f4136]"
                   >
                     Partner With Us
@@ -170,7 +171,7 @@ export default function Navbar({ onOpenGiveModal, onScrollTo }: NavbarProps) {
                     }}
                     className="flex items-center justify-center rounded-full bg-[#d26a3a] py-3 text-xs font-bold uppercase tracking-[0.14em] text-[#fff8ee]"
                   >
-                    Give Now <ArrowUpRight size={14} className="ml-1" />
+                    Seed Fund <ArrowUpRight size={14} className="ml-1" />
                   </button>
                 </div>
               </nav>
