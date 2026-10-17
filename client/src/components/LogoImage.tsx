@@ -19,7 +19,7 @@ const SIZE_MAP: Record<string, { width: number; height: number; classString: str
 
 /**
  * Responsive Multi-Size Image Logo for CASEAC
- * Features the calligraphic negative-space trademark mark in different sizes.
+ * Features the official CASEAC eagle crest, global shield, and ribbon medallion.
  */
 export default function LogoImage({
   size = "sm",
@@ -32,12 +32,12 @@ export default function LogoImage({
   const customPixels = typeof size === "number" ? size : 40;
 
   const base = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
-  const src = variant === "flourish" ? `${base}/caseac-logo-flourish.jpg` : `${base}/caseac-logo.jpg`;
+  const src = variant === "flourish" ? `${base}/caseac-logo-flourish.png` : `${base}/caseac-logo.png`;
 
   return (
     <div
       style={!isNamedSize ? { width: customPixels, height: customPixels } : undefined}
-      className={`relative inline-block shrink-0 overflow-hidden rounded-full border border-[#d8d0c4]/70 bg-[#ffffff] shadow-sm select-none transition-all duration-300 ease-out group-hover:scale-105 ${
+      className={`relative inline-block shrink-0 overflow-hidden rounded-full border border-[#d8d0c4]/70 bg-[#ffffff] p-0.5 shadow-sm select-none transition-all duration-300 ease-out group-hover:scale-105 ${
         isNamedSize ? dimension?.classString : ""
       } ${className}`}
     >
@@ -48,7 +48,7 @@ export default function LogoImage({
         height={dimension?.height || customPixels}
         loading="eager"
         decoding="async"
-        className="h-full w-full object-cover object-center"
+        className="h-full w-full object-contain object-center"
       />
     </div>
   );

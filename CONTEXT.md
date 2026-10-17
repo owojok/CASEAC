@@ -32,6 +32,8 @@ The **Celebrity Aid Social Entrepreneurship Action Center (CASEAC)** is a global
   *CASEAC identifies social challenges and the human, institutional, and community assets capable of addressing them; engages celebrated individuals, groups, communities, and institutions as co-creators of change; connects influence, knowledge, enterprise, technology, and resources; and applies social work and social entrepreneurship to design, activate, evaluate, and scale solutions that strengthen human potential, community capacity, and sustainable social impact.*
 - **Institutional Proposition:**  
   *CASEAC discovers social challenges, identifies the people and assets capable of addressing them, mobilizes influence and resources, and brings social work, entrepreneurship, innovation, evidence, and partnerships together to co-create sustainable social solutions.*
+- **Official Logo & Insignia:**  
+  *Circular Golden Eagle Crest with Royal Crown, Green Global Map Shield, Olive Branch of Peace, Arrows of Purpose, and Green-Gold Ribbon Banner bearing the CASEAC name.*
 
 ---
 
@@ -125,6 +127,7 @@ client/src/
 │   └── celebrityPlusData.ts      # 32-vector portfolio, categories, catalysts, mechanisms (<230 lines)
 ├── components/
 │   ├── Navbar.tsx                # Header, logo mark, mobile drawer (<190 lines)
+│   ├── LogoImage.tsx             # Responsive official eagle crest insignia (<60 lines)
 │   ├── HeroSection.tsx           # High-impact hero with brief formula & CTAs (<180 lines)
 │   ├── InstitutionalSection.tsx  # Vision, Mission & Institutional Proposition (<150 lines)
 │   ├── ImpactStats.tsx           # In-view animated counters (<150 lines)
