@@ -156,7 +156,7 @@ export default function HeroSection({
           </motion.div>
 
           {/* Brand Seal Badge */}
-          <div className="absolute right-6 top-6 grid h-14 w-14 place-items-center rounded-2xl bg-[#fff8ee] p-1.5 shadow-xl border border-[#e7b44a]/40">
+          <div className="absolute right-6 top-6 grid h-14 w-14 place-items-center rounded-2xl bg-[#132820]/90 p-1.5 shadow-xl border border-[#e7b44a]/40 backdrop-blur-md">
             <LogoImage size="md" />
           </div>
         </motion.div>

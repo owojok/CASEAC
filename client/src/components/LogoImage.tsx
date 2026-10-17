@@ -37,7 +37,7 @@ export default function LogoImage({
   return (
     <div
       style={!isNamedSize ? { width: customPixels, height: customPixels } : undefined}
-      className={`relative inline-block shrink-0 overflow-hidden rounded-full border border-[#d8d0c4]/70 bg-[#ffffff] p-0.5 shadow-sm select-none transition-all duration-300 ease-out group-hover:scale-105 ${
+      className={`relative inline-block shrink-0 overflow-hidden rounded-full border border-[#e7b44a]/40 bg-[#132820] p-0.5 shadow-md select-none transition-all duration-300 ease-out group-hover:scale-105 ${
         isNamedSize ? dimension?.classString : ""
       } ${className}`}
     >
